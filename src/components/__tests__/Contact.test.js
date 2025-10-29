@@ -159,7 +159,8 @@ describe('Contact Component', () => {
     test('should display profile photo', () => {
       const profileImage = screen.getByAltText(/laxman singh rawat/i);
       expect(profileImage).toBeInTheDocument();
-      expect(profileImage).toHaveAttribute('src', '/laxman-photo.jpeg');
+      const expectedSrc = `${process.env.PUBLIC_URL || ''}/laxman-photo.jpeg`;
+      expect(profileImage).toHaveAttribute('src', expectedSrc);
     });
 
     test('should display all contact methods', () => {

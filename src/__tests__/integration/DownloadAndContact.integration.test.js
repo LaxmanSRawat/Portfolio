@@ -31,7 +31,8 @@ describe('Download and Contact Integration Tests', () => {
       expect(downloadButton).toBeInTheDocument();
       
       // Verify the download attributes
-      expect(downloadButton).toHaveAttribute('href', '/Laxman-Singh-Rawat-Resume.pdf');
+      const expectedHref = `${process.env.PUBLIC_URL || ''}/Laxman-Singh-Rawat-Resume.pdf`;
+      expect(downloadButton).toHaveAttribute('href', expectedHref);
       expect(downloadButton).toHaveAttribute('download', 'Laxman-Singh-Rawat-Resume.pdf');
       
       // Simulate click (in real browser this would trigger download)
@@ -46,7 +47,8 @@ describe('Download and Contact Integration Tests', () => {
       const href = downloadButton.getAttribute('href');
       
       // Verify the file path is correctly set
-      expect(href).toBe('/Laxman-Singh-Rawat-Resume.pdf');
+      const expectedHref = `${process.env.PUBLIC_URL || ''}/Laxman-Singh-Rawat-Resume.pdf`;
+      expect(href).toBe(expectedHref);
       
       // Verify download attribute matches filename
       const downloadAttr = downloadButton.getAttribute('download');
@@ -62,7 +64,8 @@ describe('Download and Contact Integration Tests', () => {
       
       // Verify download button still works
       const downloadButton = screen.getByRole('link', { name: /download resume/i });
-      expect(downloadButton).toHaveAttribute('href', '/Laxman-Singh-Rawat-Resume.pdf');
+      const expectedHref = `${process.env.PUBLIC_URL || ''}/Laxman-Singh-Rawat-Resume.pdf`;
+      expect(downloadButton).toHaveAttribute('href', expectedHref);
       
       await user.click(downloadButton);
       expect(downloadButton).toBeInTheDocument();
@@ -118,7 +121,8 @@ describe('Download and Contact Integration Tests', () => {
       // Verify profile photo is displayed
       const profileImage = screen.getByAltText(/laxman singh rawat/i);
       expect(profileImage).toBeInTheDocument();
-      expect(profileImage).toHaveAttribute('src', '/laxman-photo.jpeg');
+      const expectedSrc = `${process.env.PUBLIC_URL || ''}/laxman-photo.jpeg`;
+      expect(profileImage).toHaveAttribute('src', expectedSrc);
       
       // Complete contact form
       await user.type(screen.getByLabelText(/your name/i), 'Journey Test User');
@@ -163,7 +167,8 @@ describe('Download and Contact Integration Tests', () => {
       await user.click(sendButton);
       
       // Verify both functionalities still work
-      expect(downloadButton).toHaveAttribute('href', '/Laxman-Singh-Rawat-Resume.pdf');
+      const expectedHref = `${process.env.PUBLIC_URL || ''}/Laxman-Singh-Rawat-Resume.pdf`;
+      expect(downloadButton).toHaveAttribute('href', expectedHref);
       
       await waitFor(() => {
         expect(window.location.href).toContain('mailto:laxman.sr.iitkgp@gmail.com');

@@ -84,7 +84,7 @@ const Hero = () => {
           </button>
           
           <a 
-            href="/Laxman-Singh-Rawat-Resume.pdf" 
+            href={`${process.env.PUBLIC_URL}/Laxman-Singh-Rawat-Resume.pdf`}
             download="Laxman-Singh-Rawat-Resume.pdf"
             className="px-8 py-3 border-2 border-primary-600 text-primary-400 hover:bg-primary-600 hover:text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
           >

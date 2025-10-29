@@ -111,6 +111,7 @@ npm test
 - [ ] Verify PDF file downloads to default download folder
 - [ ] Verify downloaded file is named "Laxman-Singh-Rawat-Resume.pdf"
 - [ ] Verify PDF opens correctly and contains resume content
+- [ ] Test download URL: `https://LaxmanSRawat.github.io/Portfolio/Laxman-Singh-Rawat-Resume.pdf`
 
 #### Cross-Browser Testing
 - [ ] Test download on Chrome (latest)

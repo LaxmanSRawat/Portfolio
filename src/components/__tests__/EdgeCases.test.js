@@ -23,7 +23,8 @@ describe('Edge Cases and Error Scenarios', () => {
       const downloadButton = screen.getByRole('link', { name: /download resume/i });
       
       // Even if file doesn't exist, link should still be properly formed
-      expect(downloadButton).toHaveAttribute('href', '/Laxman-Singh-Rawat-Resume.pdf');
+      const expectedHref = `${process.env.PUBLIC_URL || ''}/Laxman-Singh-Rawat-Resume.pdf`;
+      expect(downloadButton).toHaveAttribute('href', expectedHref);
       expect(downloadButton).toHaveAttribute('download', 'Laxman-Singh-Rawat-Resume.pdf');
       
       // Click should not throw error
@@ -70,7 +71,8 @@ describe('Edge Cases and Error Scenarios', () => {
       await user.unhover(downloadButton);
       
       // Download should still work
-      expect(downloadButton).toHaveAttribute('href', '/Laxman-Singh-Rawat-Resume.pdf');
+      const expectedHref = `${process.env.PUBLIC_URL || ''}/Laxman-Singh-Rawat-Resume.pdf`;
+      expect(downloadButton).toHaveAttribute('href', expectedHref);
       await user.click(downloadButton);
       expect(downloadButton).toBeInTheDocument();
     });

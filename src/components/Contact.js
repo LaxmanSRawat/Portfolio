@@ -74,7 +74,7 @@ const Contact = () => {
             <div className="relative">
               <div className="w-80 h-80 rounded-2xl overflow-hidden border-2 border-github-border shadow-2xl">
                 <img 
-                  src="/laxman-photo.jpeg" 
+                  src={`${process.env.PUBLIC_URL}/laxman-photo.jpeg`}
                   alt="Laxman Singh Rawat" 
                   className="w-full h-full object-cover"
                 />

@@ -20,7 +20,8 @@ describe('Hero Component', () => {
 
     test('should have correct href for resume download', () => {
       const downloadButton = screen.getByRole('link', { name: /download resume/i });
-      expect(downloadButton).toHaveAttribute('href', '/Laxman-Singh-Rawat-Resume.pdf');
+      const expectedHref = `${process.env.PUBLIC_URL || ''}/Laxman-Singh-Rawat-Resume.pdf`;
+      expect(downloadButton).toHaveAttribute('href', expectedHref);
     });
 
     test('should have download attribute set', () => {
