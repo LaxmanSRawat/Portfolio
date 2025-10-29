@@ -2,6 +2,22 @@ import React from 'react';
 import { Mail, Phone, Linkedin, MapPin, Send, MessageCircle, Github } from 'lucide-react';
 
 const Contact = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const subject = formData.get('subject');
+    const message = formData.get('message');
+    
+    // Create mailto link
+    const mailtoLink = `mailto:laxman.sr.iitkgp@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+    )}`;
+    
+    window.location.href = mailtoLink;
+  };
+
   const contactInfo = [
     {
       icon: <Mail className="w-6 h-6" />,
@@ -41,19 +57,35 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="section-padding bg-dark-800">
+    <section id="contact" className="section-padding bg-github-accent">
       <div className="container-max">
         <div className="text-center mb-16 animate-on-scroll">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="gradient-text">Get In Touch</span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-github-400 max-w-2xl mx-auto">
             Ready to collaborate on innovative solutions? Let's connect and discuss opportunities.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
+          {/* Photo Section */}
+          <div className="flex justify-center lg:justify-end animate-on-scroll">
+            <div className="relative">
+              <div className="w-80 h-80 rounded-2xl overflow-hidden border-2 border-github-border shadow-2xl">
+                <img 
+                  src="/laxman-photo.jpeg" 
+                  alt="Laxman Singh Rawat" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary-600 rounded-full flex items-center justify-center shadow-lg">
+                <MessageCircle className="text-white" size={32} />
+              </div>
+            </div>
+          </div>
+
+          {/* Contact Information and Form */}
           <div className="animate-on-scroll">
             <div className="mb-8">
               <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
@@ -78,7 +110,7 @@ const Contact = () => {
               {contactInfo.map((contact, index) => (
                 <div 
                   key={index}
-                  className="bg-dark-700/50 backdrop-blur-sm rounded-xl p-6 border border-dark-600 hover:border-primary-500/50 transition-all duration-300 card-hover"
+                  className="bg-github-900/50 backdrop-blur-sm rounded-xl p-6 border border-github-border hover:border-primary-500/50 transition-all duration-300 card-hover"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="flex items-center gap-4">
@@ -107,14 +139,14 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="animate-on-scroll" style={{ animationDelay: '0.2s' }}>
-            <div className="bg-dark-700/50 backdrop-blur-sm rounded-xl p-8 border border-dark-600">
+          <div className="animate-on-scroll mt-8" style={{ animationDelay: '0.2s' }}>
+            <div className="bg-github-900/50 backdrop-blur-sm rounded-xl p-8 border border-github-border">
               <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
                 <Send className="text-primary-400" size={24} />
                 Send a Message
               </h3>
               
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-semibold text-gray-400 mb-2">
@@ -124,7 +156,7 @@ const Contact = () => {
                       type="text"
                       id="name"
                       name="name"
-                      className="w-full px-4 py-3 bg-dark-600 border border-dark-500 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-colors duration-300"
+                      className="w-full px-4 py-3 bg-github-900 border border-github-border rounded-lg text-github-50 placeholder-github-400 focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-colors duration-300"
                       placeholder="John Doe"
                     />
                   </div>
@@ -136,7 +168,7 @@ const Contact = () => {
                       type="email"
                       id="email"
                       name="email"
-                      className="w-full px-4 py-3 bg-dark-600 border border-dark-500 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-colors duration-300"
+                      className="w-full px-4 py-3 bg-github-900 border border-github-border rounded-lg text-github-50 placeholder-github-400 focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-colors duration-300"
                       placeholder="john@example.com"
                     />
                   </div>
@@ -150,7 +182,7 @@ const Contact = () => {
                     type="text"
                     id="subject"
                     name="subject"
-                    className="w-full px-4 py-3 bg-dark-600 border border-dark-500 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-colors duration-300"
+                    className="w-full px-4 py-3 bg-github-900 border border-github-border rounded-lg text-github-50 placeholder-github-400 focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-colors duration-300"
                     placeholder="Project Collaboration Opportunity"
                   />
                 </div>
@@ -163,7 +195,7 @@ const Contact = () => {
                     id="message"
                     name="message"
                     rows={6}
-                    className="w-full px-4 py-3 bg-dark-600 border border-dark-500 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-colors duration-300 resize-vertical"
+                    className="w-full px-4 py-3 bg-github-900 border border-github-border rounded-lg text-github-50 placeholder-github-400 focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-colors duration-300 resize-vertical"
                     placeholder="Tell me about your project or opportunity..."
                   ></textarea>
                 </div>

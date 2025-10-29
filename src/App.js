@@ -31,7 +31,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-dark-900 text-white">
+    <div className="min-h-screen bg-github-bg text-github-50">
       <Header />
       <main>
         <Hero />

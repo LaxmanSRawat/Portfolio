@@ -10,7 +10,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center section-padding bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900">
+    <section id="hero" className="min-h-screen flex items-center justify-center section-padding bg-gradient-to-br from-github-bg via-github-950 to-github-bg">
       <div className="container-max text-center">
         {/* Main Content */}
         <div className="animate-fade-in">
@@ -83,10 +83,14 @@ const Hero = () => {
             Get In Touch
           </button>
           
-          <button className="px-8 py-3 border-2 border-primary-600 text-primary-400 hover:bg-primary-600 hover:text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2">
+          <a 
+            href="/Laxman-Singh-Rawat-Resume.pdf" 
+            download="Laxman-Singh-Rawat-Resume.pdf"
+            className="px-8 py-3 border-2 border-primary-600 text-primary-400 hover:bg-primary-600 hover:text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
+          >
             <Download size={18} />
             Download Resume
-          </button>
+          </a>
         </div>
 
         {/* Scroll Indicator */}

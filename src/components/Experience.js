@@ -60,7 +60,7 @@ const Experience = () => {
   };
 
   return (
-    <section id="experience" className="section-padding bg-dark-900">
+    <section id="experience" className="section-padding bg-github-bg">
       <div className="container-max">
         <div className="text-center mb-16 animate-on-scroll">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">

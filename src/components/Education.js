@@ -27,7 +27,7 @@ const Education = () => {
   ];
 
   return (
-    <section id="education" className="section-padding bg-dark-800">
+    <section id="education" className="section-padding bg-github-accent">
       <div className="container-max">
         <div className="text-center mb-16 animate-on-scroll">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
