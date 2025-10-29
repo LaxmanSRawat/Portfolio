@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/laxman-portfolio/static/css/main.c7469416.css",
-    "main.js": "/laxman-portfolio/static/js/main.7ecfca71.js",
-    "index.html": "/laxman-portfolio/index.html",
-    "main.c7469416.css.map": "/laxman-portfolio/static/css/main.c7469416.css.map",
-    "main.7ecfca71.js.map": "/laxman-portfolio/static/js/main.7ecfca71.js.map"
+    "main.css": "/Portfolio/static/css/main.c7469416.css",
+    "main.js": "/Portfolio/static/js/main.7ecfca71.js",
+    "index.html": "/Portfolio/index.html",
+    "main.c7469416.css.map": "/Portfolio/static/css/main.c7469416.css.map",
+    "main.7ecfca71.js.map": "/Portfolio/static/js/main.7ecfca71.js.map"
   },
   "entrypoints": [
     "static/css/main.c7469416.css",
