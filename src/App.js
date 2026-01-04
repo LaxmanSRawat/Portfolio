@@ -31,12 +31,12 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-github-bg text-github-50">
+    <div className="min-h-screen bg-gsap-bg text-gsap-text">
       <Header />
       <main>
         <Hero />
-        <Education />
         <Experience />
+        <Education />
         <Skills />
         <Projects />
         <Contact />

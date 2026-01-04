@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,59 +8,73 @@
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #0d1117;
-    color: #f0f6fc;
+    background-color: #0E100F;
+    color: #F3F4F1;
   }
 }
 
 @layer components {
   .section-padding {
-    @apply px-4 sm:px-6 lg:px-8 py-16 lg:py-24;
+    @apply px-6 sm:px-8 lg:px-12 py-20 lg:py-32;
   }
-  
+
   .container-max {
-    @apply max-w-7xl mx-auto;
+    @apply max-w-6xl mx-auto;
   }
-  
+
   .gradient-text {
-    @apply bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent;
+    color: #0AE448;
   }
-  
+
   .card-hover {
-    @apply transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl;
+    @apply transition-all duration-300 hover:border-primary-500/50;
   }
-  
+
   .animate-on-scroll {
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.6s ease-out;
   }
-  
+
   .animate-on-scroll.animate {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  .glass-card {
+    @apply bg-gsap-surface/80 backdrop-blur-sm border border-gsap-border rounded-xl;
+  }
+
+  .accent-glow {
+    box-shadow: 0 0 20px rgba(10, 228, 72, 0.15);
   }
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #1e293b;
+  background: #171918;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #475569;
-  border-radius: 4px;
+  background: #2A2D2C;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #64748b;
+  background: #0AE448;
+}
+
+/* Selection color */
+::selection {
+  background-color: rgba(10, 228, 72, 0.3);
+  color: #F3F4F1;
 }

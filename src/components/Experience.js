@@ -1,5 +1,5 @@
 import React from 'react';
-import { Briefcase, Calendar, MapPin, Award, TrendingUp } from 'lucide-react';
+import { Calendar, MapPin, Award } from 'lucide-react';
 
 const Experience = () => {
   const experienceData = [
@@ -9,39 +9,39 @@ const Experience = () => {
       location: "New York, NY",
       period: "Sep 2025 - Present",
       achievements: [
-        "Automated data extraction and Tableau dashboard workflows using Python, reducing reporting time by 80% while implementing data validation that identified and corrected errors in prior year datasets."
+        { text: "Automated data extraction and Tableau dashboard workflows using ", highlight: "Python", suffix: ", reducing reporting time by ", metric: "80%", end: " while implementing data validation that identified errors in prior datasets." }
       ]
     },
     {
-      company: "Anheuser-Busch InBev (AB InBev)",
+      company: "Anheuser-Busch InBev",
       position: "Solution Architect",
       location: "Karnataka, India",
       period: "Oct 2023 - Aug 2025",
       achievements: [
-        "Led development of a global Account Reconciliation platform using React, Flask, Azure SQL DB, & Data Factory, processing 120-150M financial records across 6 global regions, saving $600k in licensing costs.",
-        "Delivered an enterprise SKU change platform using React, Node.js, & Azure SQL DB with a custom state machine managing 60+ steps across 11 teams, streamlining 85% of processes & delivering $530k cost savings.",
-        "Spearheaded DevSecOps adoption by integrating SAST, DAST, and SCA tools in CI/CD pipelines, training, & monthly check-ins across 6 development teams, reducing vulnerability risk by 25% across 15 repositories."
+        { text: "Led development of a global Account Reconciliation platform using ", highlight: "React, Flask, Azure SQL DB & Data Factory", suffix: ", processing ", metric: "120-150M", end: " financial records across 6 regions, saving ", metric2: "$600k", end2: " in licensing costs." },
+        { text: "Delivered an enterprise SKU change platform with a custom state machine managing ", metric: "60+", suffix: " steps across 11 teams, streamlining ", metric2: "85%", end: " of processes & delivering ", metric3: "$530k", end2: " cost savings." },
+        { text: "Spearheaded DevSecOps adoption by integrating ", highlight: "SAST, DAST & SCA", suffix: " tools in CI/CD pipelines, reducing vulnerability risk by ", metric: "25%", end: " across 15 repositories." }
       ]
     },
     {
-      company: "Anheuser-Busch InBev (AB InBev)",
+      company: "Anheuser-Busch InBev",
       position: "Software Development Engineer I",
       location: "Karnataka, India",
       period: "Aug 2020 - Sep 2023",
       achievements: [
-        "Built and scaled a global Journal Entry platform with multi-zonal deployments & CDN for low latency & message queue for robust integration, implementing governance workflows that improved compliance by 70%.",
-        "Engineered a serverless Document Automation platform using Azure Functions, SQL DB, Blob Storage, & Doc. Intelligence, processing 90+ weekly documents, avoiding $200k detention/demurrage penalty annually.",
-        "Developed a Node.js REST API microservice integrated with 16 internal applications, automating ServiceNow incident creation, reducing average response time from 2 hours to near-instant."
+        { text: "Built and scaled a global Journal Entry platform with multi-zonal deployments & CDN, implementing governance workflows that improved compliance by ", metric: "70%", end: "." },
+        { text: "Engineered a serverless Document Automation platform using ", highlight: "Azure Functions", suffix: ", processing ", metric: "90+", end: " weekly documents, avoiding ", metric2: "$200k", end2: " detention/demurrage penalty annually." },
+        { text: "Developed a ", highlight: "Node.js REST API", suffix: " microservice integrated with 16 internal applications, reducing response time from 2 hours to ", metric: "near-instant", end: "." }
       ]
     },
     {
-      company: "Anheuser-Busch InBev (AB InBev)",
+      company: "Anheuser-Busch InBev",
       position: "Software Development Engineer Intern",
       location: "Karnataka, India",
       period: "May 2019 - Jul 2019",
       achievements: [
-        "Built a Power BI dashboard to track RPA bots' executions to optimize license allocation through data-driven insights, contributing to a 15% annual cost saving of around $25,000 on RPA licenses.",
-        "Executed a POC on OCR-based text extraction from scanned documents using Python and Tesseract, achieving ~80% accuracy and setting up benchmarks for future document digitization strategies."
+        { text: "Built a ", highlight: "Power BI", suffix: " dashboard to track RPA bot executions, contributing to ", metric: "15%", end: " annual cost saving (~", metric2: "$25,000", end2: ") on RPA licenses." },
+        { text: "Executed OCR-based text extraction POC using ", highlight: "Python & Tesseract", suffix: ", achieving ", metric: "~80%", end: " accuracy." }
       ]
     }
   ];
@@ -49,90 +49,80 @@ const Experience = () => {
   const awards = [
     "Annual Leadership Culture (2025)",
     "Top Performer of the Year (2025)",
-    "Excellence in Action -- Innovation (2024)",
+    "Excellence in Action — Innovation (2024)",
     "Beer Shot (Individual) (2021)",
-    "5 Pitcher (Team) awards (Aug 2020 - Jul 2025)"
+    "5 Pitcher (Team) awards"
   ];
 
-  const extractMetrics = (text) => {
-    const metrics = text.match(/\$[\d,]+k?|\d+%|\d+\+/g) || [];
-    return metrics;
+  const highlightStyle = "bg-primary-500 text-gsap-bg px-1 font-medium";
+
+  const renderAchievement = (achievement) => {
+    return (
+      <>
+        {achievement.text}
+        {achievement.highlight && <span className={highlightStyle}>{achievement.highlight}</span>}
+        {achievement.suffix}
+        {achievement.metric && <span className={highlightStyle}>{achievement.metric}</span>}
+        {achievement.end}
+        {achievement.metric2 && <span className={highlightStyle}>{achievement.metric2}</span>}
+        {achievement.end2}
+        {achievement.metric3 && <span className={highlightStyle}>{achievement.metric3}</span>}
+      </>
+    );
   };
 
   return (
-    <section id="experience" className="section-padding bg-github-bg">
+    <section id="experience" className="section-padding bg-gsap-bg">
       <div className="container-max">
         <div className="text-center mb-16 animate-on-scroll">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="gradient-text">Professional Experience</span>
+            <span className="gradient-text">Experience</span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            5+ years of experience in solution architecture, automation, and full-stack development
-          </p>
+          <p className="text-gsap-muted text-lg">5+ years building enterprise solutions</p>
         </div>
 
         {/* Experience Timeline */}
         <div className="relative">
           {/* Timeline Line */}
-          <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-600 to-primary-400"></div>
+          <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary-500 via-primary-500/50 to-transparent"></div>
 
           {experienceData.map((exp, index) => (
-            <div 
+            <div
               key={index}
-              className={`relative mb-12 animate-on-scroll ${
-                index % 2 === 0 ? 'md:pr-1/2 md:text-right' : 'md:pl-1/2 md:ml-8'
-              }`}
-              style={{ animationDelay: `${index * 0.2}s` }}
+              className="relative mb-12 animate-on-scroll"
+              style={{ animationDelay: `${index * 0.15}s` }}
             >
               {/* Timeline Dot */}
-              <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1 w-8 h-8 bg-primary-600 rounded-full border-4 border-dark-900 flex items-center justify-center">
-                <Briefcase size={16} className="text-white" />
-              </div>
+              <div className="absolute left-6 md:left-8 transform -translate-x-1/2 w-3 h-3 bg-primary-500 rounded-full border-4 border-gsap-bg"></div>
 
               {/* Content Card */}
-              <div className={`ml-16 md:ml-0 bg-dark-700/50 backdrop-blur-sm rounded-xl p-8 border border-dark-600 hover:border-primary-500/50 transition-all duration-300 card-hover`}>
+              <div className="ml-16 md:ml-20 glass-card p-8 card-hover">
                 <div className="mb-6">
-                  <h3 className="text-2xl font-bold text-white mb-2">{exp.position}</h3>
-                  <h4 className="text-xl text-primary-400 font-semibold mb-4">{exp.company}</h4>
-                  
-                  <div className="flex flex-wrap gap-4 text-gray-300 mb-6">
+                  <h3 className="text-xl font-bold text-gsap-text mb-1">{exp.position}</h3>
+                  <h4 className="text-lg text-primary-500 font-medium mb-4">{exp.company}</h4>
+
+                  <div className="flex flex-wrap gap-4 text-gsap-muted text-sm">
                     <div className="flex items-center gap-2">
-                      <MapPin size={16} />
+                      <MapPin size={14} />
                       <span>{exp.location}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Calendar size={16} />
+                      <Calendar size={14} />
                       <span>{exp.period}</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Achievements */}
-                <div className="space-y-4">
-                  {exp.achievements.map((achievement, idx) => {
-                    const metrics = extractMetrics(achievement);
-                    return (
-                      <div key={idx} className="flex items-start gap-3 group">
-                        <div className="flex-shrink-0 w-2 h-2 bg-primary-400 rounded-full mt-2 group-hover:bg-primary-300 transition-colors duration-300"></div>
-                        <p className="text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
-                          {achievement}
-                          {metrics.length > 0 && (
-                            <div className="flex flex-wrap gap-2 mt-2">
-                              {metrics.map((metric, metricIdx) => (
-                                <span 
-                                  key={metricIdx}
-                                  className="inline-flex items-center px-2 py-1 bg-primary-600/20 text-primary-400 rounded text-sm font-semibold"
-                                >
-                                  <TrendingUp size={12} className="mr-1" />
-                                  {metric}
-                                </span>
-                              ))}
-                            </div>
-                          )}
-                        </p>
-                      </div>
-                    );
-                  })}
+                <div className="space-y-3">
+                  {exp.achievements.map((achievement, idx) => (
+                    <div key={idx} className="flex items-start gap-3">
+                      <div className="flex-shrink-0 w-1.5 h-1.5 bg-primary-500 rounded-full mt-2"></div>
+                      <p className="text-gsap-muted text-sm leading-relaxed">
+                        {renderAchievement(achievement)}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -141,19 +131,19 @@ const Experience = () => {
 
         {/* Professional Awards */}
         <div className="mt-16 animate-on-scroll">
-          <div className="bg-dark-700/50 backdrop-blur-sm rounded-xl p-8 border border-dark-600">
-            <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-              <Award className="text-primary-400" size={24} />
-              Professional Awards & Recognition
+          <div className="glass-card p-8">
+            <h3 className="text-xl font-bold text-gsap-text mb-6 flex items-center gap-3">
+              <Award className="text-primary-500" size={20} />
+              Recognition
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="flex flex-wrap gap-3">
               {awards.map((award, index) => (
-                <div 
+                <span
                   key={index}
-                  className="bg-dark-600/50 rounded-lg p-4 border border-dark-500 hover:border-primary-500/50 transition-all duration-300 hover:transform hover:scale-105"
+                  className="px-4 py-2 bg-gsap-elevated text-gsap-muted rounded-full text-sm border border-gsap-border hover:border-primary-500/50 transition-colors duration-300"
                 >
-                  <p className="text-gray-300 font-medium">{award}</p>
-                </div>
+                  {award}
+                </span>
               ))}
             </div>
           </div>

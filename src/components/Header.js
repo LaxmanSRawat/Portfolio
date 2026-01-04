@@ -16,8 +16,8 @@ const Header = () => {
 
   const navItems = [
     { name: 'Home', href: '#hero' },
-    { name: 'Education', href: '#education' },
     { name: 'Experience', href: '#experience' },
+    { name: 'Education', href: '#education' },
     { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' },
@@ -32,27 +32,26 @@ const Header = () => {
   };
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-github-bg/95 backdrop-blur-sm shadow-lg border-b border-github-border' 
-          : 'bg-transparent'
-      }`}
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+        ? 'bg-gsap-bg/95 backdrop-blur-md border-b border-gsap-border'
+        : 'bg-transparent'
+        }`}
     >
-      <nav className="container-max section-padding py-4">
+      <nav className="container-max section-padding py-5">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="text-2xl font-bold gradient-text animate-fade-in">
+          <div className="text-2xl font-bold text-primary-500 animate-fade-in">
             LSR
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-10">
             {navItems.map((item, index) => (
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="text-gray-300 hover:text-primary-400 transition-colors duration-300 font-medium animate-fade-in"
+                className="text-gsap-muted hover:text-primary-500 transition-colors duration-300 font-medium text-sm tracking-wide uppercase animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {item.name}
@@ -62,7 +61,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-gray-300 hover:text-primary-400 transition-colors duration-300"
+            className="md:hidden text-gsap-muted hover:text-primary-500 transition-colors duration-300"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -71,13 +70,13 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 py-4 border-t border-dark-700 animate-slide-up">
+          <div className="md:hidden mt-6 py-6 border-t border-gsap-border animate-slide-up">
             <div className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-gray-300 hover:text-primary-400 transition-colors duration-300 font-medium text-left"
+                  className="text-gsap-muted hover:text-primary-500 transition-colors duration-300 font-medium text-left text-sm tracking-wide uppercase"
                 >
                   {item.name}
                 </button>
