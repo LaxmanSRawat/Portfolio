@@ -1,7 +1,34 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Calendar, MapPin, Award } from 'lucide-react';
 
 const Experience = () => {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Add active class to all highlight-sweep elements within this card
+            const highlights = entry.target.querySelectorAll('.highlight-sweep');
+            highlights.forEach((el, index) => {
+              setTimeout(() => {
+                el.classList.add('active');
+              }, index * 100); // Stagger the animations
+            });
+            observer.unobserve(entry.target); // Only animate once
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    const cards = sectionRef.current?.querySelectorAll('.experience-card');
+    cards?.forEach((card) => observer.observe(card));
+
+    return () => observer.disconnect();
+  }, []);
+
   const experienceData = [
     {
       company: "New York University",
@@ -54,7 +81,7 @@ const Experience = () => {
     "5 Pitcher (Team) awards"
   ];
 
-  const highlightStyle = "bg-primary-500 text-gsap-bg px-1 font-medium";
+  const highlightStyle = "highlight-sweep px-1 font-medium";
 
   const renderAchievement = (achievement) => {
     return (
@@ -72,7 +99,7 @@ const Experience = () => {
   };
 
   return (
-    <section id="experience" className="section-padding bg-gsap-bg">
+    <section id="experience" className="section-padding bg-gsap-bg" ref={sectionRef}>
       <div className="container-max">
         <div className="text-center mb-16 animate-on-scroll">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -89,7 +116,7 @@ const Experience = () => {
           {experienceData.map((exp, index) => (
             <div
               key={index}
-              className="relative mb-12 animate-on-scroll"
+              className="relative mb-12 animate-on-scroll experience-card"
               style={{ animationDelay: `${index * 0.15}s` }}
             >
               {/* Timeline Dot */}

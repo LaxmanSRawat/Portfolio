@@ -1,5 +1,5 @@
 import React from 'react';
-import { Linkedin, Github, Download, ArrowDown } from 'lucide-react';
+import { Linkedin, Github, Download, ArrowDown, Hand, GraduationCap, Briefcase, Heart, Target } from 'lucide-react';
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -18,62 +18,104 @@ const Hero = () => {
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center section-padding relative">
-      <div className="container-max text-center">
-        {/* Main Content */}
-        <div className="animate-fade-in max-w-4xl mx-auto">
-          <p className="text-primary-500 text-sm font-semibold tracking-[0.3em] uppercase mb-6 animate-slide-up">
+      <div className="container-max">
+        <div className="max-w-4xl mx-auto">
+          {/* Greeting */}
+          <div className="animate-fade-in mb-8">
+            <p className="text-primary-500 text-lg font-medium flex items-center gap-2 animate-slide-up">
+              <Hand size={20} className="text-primary-500" />
+              Hey there! I'm
+            </p>
+          </div>
+
+          {/* Name */}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-4 tracking-tight animate-slide-up" style={{ animationDelay: '0.1s' }}>
+            <span className="gradient-text">Laxman </span>
+            <span className="text-gsap-text">Singh Rawat</span>
+          </h1>
+
+          {/* Title */}
+          <p className="text-primary-500 text-sm font-semibold tracking-[0.2em] uppercase mb-8 animate-slide-up" style={{ animationDelay: '0.15s' }}>
             Solution Architect & Full Stack Developer
           </p>
 
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 tracking-tight animate-slide-up" style={{ animationDelay: '0.1s' }}>
-            <span className="text-gsap-text">Laxman Singh</span>
-            <br />
-            <span className="gradient-text">Rawat</span>
-          </h1>
-
-          <p className="text-lg md:text-xl text-gsap-muted mb-12 max-w-2xl mx-auto animate-slide-up leading-relaxed" style={{ animationDelay: '0.2s' }}>
-            Building scalable solutions and automating complex workflows at enterprise scale.
+          {/* About Me Header */}
+          <p className="text-lg text-gsap-muted mb-6 animate-slide-up" style={{ animationDelay: '0.18s' }}>
+            A bit about me
           </p>
-        </div>
 
-        {/* Social Links */}
-        <div className="flex justify-center items-center gap-6 mb-12 animate-slide-up" style={{ animationDelay: '0.3s' }}>
-          <a
-            href="https://linkedin.com/in/laxman-s-rawat"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-12 h-12 rounded-full border border-gsap-border flex items-center justify-center text-gsap-muted hover:text-primary-500 hover:border-primary-500 transition-all duration-300"
-          >
-            <Linkedin size={20} />
-          </a>
+          {/* About Me - Flowing Text */}
+          <div className="space-y-4 mb-8 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+            <p className="text-base text-gsap-muted leading-relaxed flex items-start gap-3">
+              <GraduationCap size={20} className="text-primary-500 flex-shrink-0 mt-0.5" />
+              <span>
+                Currently pursuing my <span className="text-primary-500 font-medium">Master's in Computer Science</span> at <span className="text-gsap-text font-medium">NYU</span>,
+                with a B.Tech from <span className="text-gsap-text font-medium">IIT Kharagpur</span>.
+              </span>
+            </p>
 
-          <a
-            href="https://github.com/LaxmanSRawat"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-12 h-12 rounded-full border border-gsap-border flex items-center justify-center text-gsap-muted hover:text-primary-500 hover:border-primary-500 transition-all duration-300"
-          >
-            <Github size={20} />
-          </a>
-        </div>
+            <p className="text-base text-gsap-muted leading-relaxed flex items-start gap-3">
+              <Briefcase size={20} className="text-primary-500 flex-shrink-0 mt-0.5" />
+              <span>
+                <span className="text-primary-500 font-medium">5+ years</span> at AB InBev, building enterprise platforms that process millions of records.
+              </span>
+            </p>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style={{ animationDelay: '0.4s' }}>
-          <button
-            onClick={scrollToContact}
-            className="px-8 py-4 bg-primary-500 hover:bg-primary-600 text-gsap-bg font-semibold rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/25"
-          >
-            Get In Touch
-          </button>
+            <p className="text-base text-gsap-muted leading-relaxed flex items-start gap-3">
+              <Target size={20} className="text-primary-500 flex-shrink-0 mt-0.5" />
+              <span>
+                Currently focused on <span className="text-primary-500 font-medium">AI/ML</span>, <span className="text-primary-500 font-medium">Cloud Architecture</span>, and <span className="text-primary-500 font-medium">Data Visualization</span>.
+              </span>
+            </p>
 
-          <a
-            href="/Laxman-Singh-Rawat-Resume.pdf"
-            download="Laxman-Singh-Rawat-Resume.pdf"
-            className="px-8 py-4 border border-gsap-border text-gsap-text hover:border-primary-500 hover:text-primary-500 font-semibold rounded-full transition-all duration-300 flex items-center justify-center gap-2"
-          >
-            <Download size={18} />
-            Resume
-          </a>
+            <p className="text-base text-gsap-muted leading-relaxed flex items-start gap-3">
+              <Heart size={20} className="text-primary-500 flex-shrink-0 mt-0.5" />
+              <span>
+                When not coding, you can find me <span className="text-primary-500 font-medium">sketching and illustrating</span>,
+                learning new recipes, or <span className="text-primary-500 font-medium">competitive gaming</span>.
+              </span>
+            </p>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 mb-8 animate-slide-up" style={{ animationDelay: '0.3s' }}>
+            <button
+              onClick={scrollToContact}
+              className="px-8 py-4 bg-primary-500 hover:bg-primary-600 text-gsap-bg font-semibold rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/25"
+            >
+              Let's Connect
+            </button>
+
+            <a
+              href={`${process.env.PUBLIC_URL}/Laxman-Singh-Rawat-Resume.pdf`}
+              download="Laxman-Singh-Rawat-Resume.pdf"
+              className="px-8 py-4 border border-gsap-border text-gsap-text hover:border-primary-500 hover:text-primary-500 font-semibold rounded-full transition-all duration-300 flex items-center justify-center gap-2"
+            >
+              <Download size={18} />
+              Resume
+            </a>
+          </div>
+
+          {/* Social Links */}
+          <div className="flex items-center gap-4 animate-slide-up" style={{ animationDelay: '0.4s' }}>
+            <a
+              href="https://linkedin.com/in/laxman-s-rawat"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full border border-gsap-border flex items-center justify-center text-gsap-muted hover:text-primary-500 hover:border-primary-500 transition-all duration-300"
+            >
+              <Linkedin size={18} />
+            </a>
+
+            <a
+              href="https://github.com/LaxmanSRawat"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full border border-gsap-border flex items-center justify-center text-gsap-muted hover:text-primary-500 hover:border-primary-500 transition-all duration-300"
+            >
+              <Github size={18} />
+            </a>
+          </div>
         </div>
 
         {/* Scroll Indicator */}

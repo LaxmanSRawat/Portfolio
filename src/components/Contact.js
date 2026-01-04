@@ -82,9 +82,9 @@ const Contact = () => {
             {/* Photo */}
             <div className="flex justify-center animate-on-scroll">
               <div className="relative">
-                <div className="w-72 h-72 rounded-2xl overflow-hidden border border-gsap-border">
+                <div className="w-56 h-56 rounded-2xl overflow-hidden border border-gsap-border">
                   <img
-                    src="/laxman-photo.jpeg"
+                    src={`${process.env.PUBLIC_URL}/laxman-photo.jpeg`}
                     alt="Laxman Singh Rawat"
                     className="w-full h-full object-cover"
                   />
