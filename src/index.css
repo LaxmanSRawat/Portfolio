@@ -80,6 +80,46 @@
   .highlight-sweep.active::before {
     width: 100%;
   }
+
+  .animate-wave {
+    animation: wave 4s ease-in-out infinite;
+    transform-origin: 70% 70%;
+    display: inline-block;
+  }
+
+  @keyframes wave {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    3% {
+      transform: rotate(14deg);
+    }
+
+    7% {
+      transform: rotate(-8deg);
+    }
+
+    10% {
+      transform: rotate(14deg);
+    }
+
+    13% {
+      transform: rotate(-4deg);
+    }
+
+    17% {
+      transform: rotate(10deg);
+    }
+
+    20% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(0deg);
+    }
+  }
 }
 
 /* Custom scrollbar */

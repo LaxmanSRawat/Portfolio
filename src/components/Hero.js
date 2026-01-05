@@ -23,7 +23,7 @@ const Hero = () => {
           {/* Greeting */}
           <div className="animate-fade-in mb-8">
             <p className="text-primary-500 text-lg font-medium flex items-center gap-2 animate-slide-up">
-              <Hand size={20} className="text-primary-500" />
+              <Hand size={20} className="text-primary-500 animate-wave" />
               Hey there! I'm
             </p>
           </div>
