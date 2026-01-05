@@ -71,8 +71,8 @@ const Hero = () => {
             <p className="text-base text-gsap-muted leading-relaxed flex items-start gap-3">
               <Heart size={20} className="text-primary-500 flex-shrink-0 mt-0.5" />
               <span>
-                When not coding, you can find me <span className="text-primary-500 font-medium">sketching and illustrating</span>,
-                learning new recipes, or <span className="text-primary-500 font-medium">competitive gaming</span>.
+                When not coding, you can find me <span className="text-primary-500 font-medium">sketching and illustrating</span>, <span className="text-primary-500 font-medium">
+                  learning new recipes</span>, or <span className="text-primary-500 font-medium">competitive gaming</span>.
               </span>
             </p>
           </div>
